@@ -1,0 +1,45 @@
+﻿@using Library.Service.Dtos
+@model List<GetBorrowedBookDto>
+@{
+    ViewData["Title"] = "My Borrowed Books";
+}
+
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">
+            You haven't borrowed any books yet.
+        </div>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th>Borrow Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in Model)
+                {
+                    <tr>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.ISBN</td>
+                        <td>@book.BorrowDate.ToShortDateString()</td>
+                        <td>
+                                <a asp-action="ReturnBook" asp-controller="Borrowing" asp-route-bookId="@book.BookId" class="btn btn-primary">Return</a>
+                           
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

@@ -1,0 +1,12 @@
+C:\Users\bqaou\source\repos\LibrarySystem\Library.DAL\bin\Debug\net8.0\LibraryDAL.deps.json
+C:\Users\bqaou\source\repos\LibrarySystem\Library.DAL\bin\Debug\net8.0\LibraryDAL.dll
+C:\Users\bqaou\source\repos\LibrarySystem\Library.DAL\bin\Debug\net8.0\LibraryDAL.pdb
+C:\Users\bqaou\source\repos\LibrarySystem\Library.DAL\obj\Debug\net8.0\LibraryDAL.csproj.AssemblyReference.cache
+C:\Users\bqaou\source\repos\LibrarySystem\Library.DAL\obj\Debug\net8.0\LibraryDAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bqaou\source\repos\LibrarySystem\Library.DAL\obj\Debug\net8.0\LibraryDAL.AssemblyInfoInputs.cache
+C:\Users\bqaou\source\repos\LibrarySystem\Library.DAL\obj\Debug\net8.0\LibraryDAL.AssemblyInfo.cs
+C:\Users\bqaou\source\repos\LibrarySystem\Library.DAL\obj\Debug\net8.0\LibraryDAL.csproj.CoreCompileInputs.cache
+C:\Users\bqaou\source\repos\LibrarySystem\Library.DAL\obj\Debug\net8.0\LibraryDAL.dll
+C:\Users\bqaou\source\repos\LibrarySystem\Library.DAL\obj\Debug\net8.0\refint\LibraryDAL.dll
+C:\Users\bqaou\source\repos\LibrarySystem\Library.DAL\obj\Debug\net8.0\LibraryDAL.pdb
+C:\Users\bqaou\source\repos\LibrarySystem\Library.DAL\obj\Debug\net8.0\ref\LibraryDAL.dll

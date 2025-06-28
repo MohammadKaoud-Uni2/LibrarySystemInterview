@@ -1,0 +1,69 @@
+﻿@using Library.Service.Dtos
+@model List<GetBookDto>
+@{
+    ViewData["Title"] = "Book List";
+}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Available Books</h2>
+
+
+        <form asp-action="Search" method="get" class="d-flex" style="width: 25%;">
+            <input type="text" name="query" class="form-control form-control-sm mr-2" placeholder="Search books..." />
+            <button type="submit" class="btn btn-sm btn-outline-success " style="margin-left:10px">Search</button>
+        </form>
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">No books available in the library.</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in Model)
+                    {
+                        <tr>
+                            <td>@book.Title</td>
+                            <td>@book.Author</td>
+                            <td>@book.ISBN</td>
+                            <td>
+                                @if (book.ISAvailable)
+                                {
+                                    <span class="badge badge-success text-success">Available</span>
+                                }
+                                else
+                                {
+                                    <span class=" badge badge-danger text-danger">Borrowed</span>
+                                }
+                            </td>
+                            <td>
+                                @if (book.ISAvailable)
+                                {
+                                    <a href="@Url.Action("Borrow", "Borrowing", new { bookId = book.BookId })"
+                                       class="btn btn-primary btn-sm">Borrow</a>
+                                }
+                                else
+                                {
+                                    <button   class="btn btn-secondary btn-sm" disabled>Borrow</button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
