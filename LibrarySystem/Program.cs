@@ -42,23 +42,31 @@ var app = builder.Build();
 # region SeederForTestDataBecuaseInsertingBookIsNotFromRequirements
 using (var scope = app.Services.CreateScope())
 {
-    var initializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializer>();
-
-    var dbExists = await initializer.DatabaseExistsAsync("Library");
-    if (!dbExists)
+    try
     {
-        await initializer.InitializeDatabaseAsync();
-        Console.WriteLine(" Database initialized.");
-    }
-    else
-    {
-        Console.WriteLine("Skipping initialization.");
-    }
+        var initializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializer>();
 
-    var seeder = scope.ServiceProvider.GetRequiredService<IBookRepoistory>();
-    var result = await seeder.SeedDummyDataIfNull();
-    Console.WriteLine("Seeder Result: " + result);
+        var dbExists = await initializer.DatabaseExistsAsync("Library");
+        if (!dbExists)
+        {
+            await initializer.InitializeDatabaseAsync();
+            Console.WriteLine("Database initialized.");
+        }
+        else
+        {
+            Console.WriteLine("Skipping initialization.");
+        }
+
+        var seeder = scope.ServiceProvider.GetRequiredService<IBookRepoistory>();
+        var result = await seeder.SeedDummyDataIfNull();
+        Console.WriteLine("Seeder Result: " + result);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Startup error While initilize Database With StoredProcedures With this Error : " + ex.Message);
+    }
 }
+
 #endregion
 
 

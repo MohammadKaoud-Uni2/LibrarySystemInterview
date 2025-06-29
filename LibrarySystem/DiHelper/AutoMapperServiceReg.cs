@@ -11,5 +11,6 @@ namespace LibrarySystem.Presentation.DiHelper
             services.AddAutoMapper(typeof(UserProfile));
             return services;
         }
+       
     }
 }

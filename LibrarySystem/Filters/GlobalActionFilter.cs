@@ -30,7 +30,7 @@ namespace LibrarySystem.Presentation.Filters
             }
             var controller = context.Controller.GetType().Name;
             var action = context.ActionDescriptor.DisplayName;
-            _logger.LogInformation($"[START] {controller} - {action} at {DateTime.UtcNow}");
+            _logger.LogInformation($" {controller} - {action} at {DateTime.UtcNow}");
         }
 
         public void OnActionExecuted(ActionExecutedContext context)
@@ -40,7 +40,7 @@ namespace LibrarySystem.Presentation.Filters
 
             if (context.Exception != null)
             {
-                _logger.LogError(context.Exception, $"[ERROR] Exception in {controller} - {action}");
+                _logger.LogError(context.Exception, $" Exception in {controller} - {action}");
                 context.Result = new ViewResult
                 {
                     ViewName = "Error",
